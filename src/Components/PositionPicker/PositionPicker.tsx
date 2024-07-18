@@ -1,4 +1,5 @@
 import Position from "./Position";
+import { POSITIONS } from "../../Global/Constants";
 
 const PositionPicker = () => {
   return (
@@ -7,26 +8,7 @@ const PositionPicker = () => {
         pick your position
       </div>
       <div className='flex mt-8'>
-        {[
-          {
-            position: "rock",
-            bg: "#211F4F",
-            color: "#267DE5",
-            border: "#2E4D97",
-          },
-          {
-            position: "paper",
-            bg: "#1A381D",
-            color: "#16C359",
-            border: "#187E3A",
-          },
-          {
-            position: "scissors",
-            bg: "#50091E",
-            color: "#E31542",
-            border: "#9A0E30",
-          },
-        ].map((item) => (
+        {POSITIONS.map((item) => (
           <Position
             position={item.position}
             bg={item.bg}

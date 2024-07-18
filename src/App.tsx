@@ -14,7 +14,7 @@ function App() {
         <div>sss</div>
         <PositionPicker />
         <div className='grid justify-center '>
-          <button className='border-2 block h-max w-52 rounded-full p-4 text-[#D4B37F] text-3xl bg-[#070707] border-[#D4B37F]'>
+          <button className='border-4 block h-max w-52 rounded-full p-4 text-[#D4B37F] text-3xl bg-[#070707] border-[#D4B37F]'>
             Play
           </button>
         </div>
