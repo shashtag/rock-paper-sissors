@@ -16,26 +16,12 @@
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
-<!-- PROJECT LOGO -->
-<br />
 <div align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
 
-  <h3 align="center">Best-README-Template</h3>
+  <h3 align="center">Rock Paper Scissors</h3>
 
   <p align="center">
-    An awesome README template to jumpstart your projects!
-    <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/">View Demo</a>
-    ·
-    <a href="https://github.com/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/issues">Request Feature</a>
+    <a href="https://rock-paper-scissors-betting.netlify.app/">View Demo</a>
   </p>
 </div>
 
@@ -67,21 +53,55 @@
 
 <!-- ABOUT THE PROJECT -->
 
-## About The Project
+# Test task specification
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![Product Name Screen Shot][product-screenshot]](https://rock-paper-scissors-betting.netlify.app/)
 
-There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
+Your test task is to create a React app, using Typescript with strict typing.
+The app is a scissors, rock, paper game, with the ability to bet on the winning position.
 
-Here's why:
+## Specifications
 
-- Your time should be focused on creating something amazing. A project that solves a problem and helps others
-- You shouldn't be doing the same tasks over and over like creating a README from scratch
-- You should implement DRY principles to the rest of your life :smile:
+- Player starts with a balance of 5000.
+- Each bet should be 500 (player can place several bets on any position: 500, 1000,
+  1500 etc)
+- Player can not bet more than 2 positions per one game
+- Winning rate for bet on 1 position is 14
+- Winning rate for bet on 2 positions is 3
 
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have contributed to expanding this template!
+## Requirements
 
-Use the `BLANK_README.md` to get started.
+- There should be three betting positions, rock, paper, scissors.
+- Player can bet on rock, paper, or scissors, but not on all three at the same time.
+- The bet is reduced from the balance.
+- When betting done button is clicked, the computer runs a random paper, scissors,
+  rock match.
+- Player choice should be compared to computers choice and only one bet can win –
+  every tie counts as loss
+- If player bets on one of them and wins, the return is 14 times the bet.
+- If player bets on two of them and wins the return is 3 times the bet.
+- Loss bets are not returned to player
+- Bets with tie result are returned to player
+- After round ends the return adds to the balance
+- Player cannot bet if player has less balance than available for bet.
+
+NB please keep in mind that Title ROCK vs PAPER on the second screen means “computer choice ROCK versus player choice PAPER” — not ROCK bet vs PAPER bet.
+
+## Acceptance criteria
+
+Every point of task should be implemented
+
+### Junior level
+
+In general implementing every point is enough for junior. Optionally we pay attention to such things as concistency, variable naming, files and folders structure.
+
+### Middle level
+
+We pay attention to everything mentioned for Junior (optional part is mandatory for middle). Additionally we check UX and compare UI with mockups more thorough and we expect following clean code principles
+
+### Senior level
+
+We pay attention to everything mentioned for middle. Additionally we expect code to be flexible and maintainable. Changing of requirements should not lead to rewriting half of application. Changing of specifications should cause minimal changes.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -229,7 +249,7 @@ Use this space to list resources you find helpful and would like to give credit 
 [license-url]: https://github.com/shashtag/rock-paper-sissors-betting/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/shashtag/
-[product-screenshot]: images/screenshot.png
+[product-screenshot]: images/screen1.png
 [Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
 [Next-url]: https://nextjs.org/
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
