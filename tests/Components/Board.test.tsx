@@ -6,7 +6,6 @@ import { PositionsType } from "../../src/Global/Types";
 describe("Board", () => {
   it("renders the computer choice correctly", () => {
     const state = {
-      outcome: undefined,
       computerChoice: "rock" as PositionsType,
       positions: {},
       winLossAmount: 0,
@@ -25,7 +24,6 @@ describe("Board", () => {
 
   it("renders the player choices correctly", () => {
     const state = {
-      outcome: undefined,
       computerChoice: undefined,
       positions: { rock: 1, paper: 2 },
       win: 0,
@@ -62,7 +60,6 @@ describe("Board", () => {
 
   it("renders VS text correctly", () => {
     const state = {
-      outcome: undefined,
       computerChoice: "rock" as PositionsType,
       positions: { rock: 8 },
       win: 0,
