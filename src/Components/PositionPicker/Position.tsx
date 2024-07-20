@@ -36,14 +36,14 @@ const Position = ({ position, color, bg, border }: PositionProps) => {
         }
         !state.computerChoice && dispatch({ type: "BET", payload: position });
       }}
-      className='mx-12 h-40 w-52 grid place-items-center capitalize border-[3px] rounded-lg '
+      className=' p-2 md:p-0 md:h-40 w-52 grid place-items-center capitalize border-[3px] rounded-lg '
       style={{
         borderColor: border,
         backgroundColor: bg,
         cursor: !state.computerChoice ? "pointer" : undefined,
       }}>
       <div>
-        <div className='h-[4.25rem] w-[4.25rem]  mx-auto mb-3'>
+        <div className='h-9 md:h-[4.25rem] w-[4.25rem]  mx-auto mb-3'>
           {state.positions[position as keyof Positions] ? (
             <div
               onClick={(e) => {
@@ -57,7 +57,7 @@ const Position = ({ position, color, bg, border }: PositionProps) => {
           ) : null}
         </div>
         <div
-          className='uppercase font-semibold text-2xl'
+          className='uppercase font-semibold text-xl md:text-2xl'
           style={{ color: color }}>
           {position}
         </div>

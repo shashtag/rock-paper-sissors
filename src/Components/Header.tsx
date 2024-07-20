@@ -4,7 +4,7 @@ import { AppContext } from "../Global/AppContext";
 const Header = () => {
   const { state } = useContext(AppContext);
   return (
-    <div className='flex bg-[#161616] justify-center gap-16'>
+    <div className='flex bg-[#161616] justify-center gap-8 md:gap-16'>
       <div className=' py-1 text-[#FBFBFB] font-semibold'>
         <span className='text-[#D4B37F]'>Balance : </span>
         {state.balance}

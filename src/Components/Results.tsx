@@ -8,7 +8,7 @@ const Results = () => {
       <div className='grid place-items-center'>
         <div>
           <div
-            className='text-6xl uppercase font-semibold'
+            className='text-5xl md:text-6xl uppercase font-semibold'
             style={{
               color:
                 state.outcome === "win"

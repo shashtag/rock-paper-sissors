@@ -7,7 +7,7 @@ const PositionPicker = () => {
       <div className='uppercase font-semibold text-[#D4B37F]'>
         pick your position
       </div>
-      <div className='flex mt-8'>
+      <div className='flex mt-4 md:mt-8 flex-col md:flex-row gap-4 md:gap-12 mb-6 md:mb-0 '>
         {POSITIONS.map((item) => (
           <Position
             position={item.position}
