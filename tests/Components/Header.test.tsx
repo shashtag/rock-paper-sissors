@@ -1,21 +1,28 @@
 import { render, screen } from "@testing-library/react";
 import Header from "../../src/Components/Header";
-import { AppProvider } from "../../src/Global/AppContext";
+import { AppContext } from "../../src/Global/AppContext";
 
 describe("Header", () => {
-  it("should render", () => {
+  beforeEach(() => {
+    const state = { balance: 100, bet: 50, win: 200, positions: {} };
     render(
-      <AppProvider>
+      <AppContext.Provider value={{ state, dispatch: () => {} }}>
         <Header />
-      </AppProvider>,
+      </AppContext.Provider>,
     );
+  });
+  it("renders the balance correctly", () => {
+    expect(screen.getByText(/Balance :/)).toBeInTheDocument();
+    expect(screen.getByText("100")).toBeInTheDocument();
+  });
 
-    const balance = screen.getByText(/Balance :/i);
-    const bet = screen.getByText(/Bet :/i);
-    const win = screen.getByText(/Win :/i);
+  it("renders the bet correctly", () => {
+    expect(screen.getByText(/Bet :/)).toBeInTheDocument();
+    expect(screen.getByText("50")).toBeInTheDocument();
+  });
 
-    expect(balance).toBeInTheDocument();
-    expect(bet).toBeInTheDocument();
-    expect(win).toBeInTheDocument();
+  it("renders the win correctly", () => {
+    expect(screen.getByText(/Win :/)).toBeInTheDocument();
+    expect(screen.getByText("200")).toBeInTheDocument();
   });
 });

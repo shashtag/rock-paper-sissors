@@ -10,10 +10,10 @@ type StateType = {
   positions: { [key in PositionsType]?: number | undefined };
   bet: number;
   win: number;
-  computerChoice: PositionsType | undefined;
-  outcome: "win" | "loss" | "draw" | undefined;
-  winPosition: PositionsType | undefined;
-  winLossAmount: number | undefined;
+  computerChoice?: PositionsType;
+  outcome?: "win" | "loss" | "draw";
+  winPosition?: PositionsType;
+  winLossAmount?: number;
 };
 
 type payloadType = boolean | PositionsType | null;
@@ -23,10 +23,6 @@ const initialState: StateType = {
   positions: {},
   bet: 0,
   win: 0,
-  computerChoice: undefined,
-  outcome: undefined,
-  winPosition: undefined,
-  winLossAmount: undefined,
 };
 
 export const AppContext = createContext<{
