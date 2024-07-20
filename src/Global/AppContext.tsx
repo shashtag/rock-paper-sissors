@@ -1,7 +1,7 @@
 import React, { createContext, ReactNode, useReducer } from "react";
-import { INIT_BALANCE, MIN_BET } from "./Constants";
+import { INIT_BALANCE, MIN_BET, POSITIONS, ranks } from "./Constants";
 import { PositionsType } from "./Types";
-import { calculateProbableWinOnBets } from "./Utils";
+import { calculateProbableWinOnBets, getWinLossDraw } from "./Utils";
 
 type StateType = {
   loading: boolean;
@@ -10,9 +10,10 @@ type StateType = {
   positions: { [key in PositionsType]?: number | undefined };
   bet: number;
   win: number;
+  computerChoice: PositionsType | null;
 };
 
-type payloadType = boolean | PositionsType;
+type payloadType = boolean | PositionsType | null;
 
 const initialState: StateType = {
   loading: false,
@@ -21,6 +22,7 @@ const initialState: StateType = {
   positions: {},
   bet: 0,
   win: 0,
+  computerChoice: null,
 };
 
 export const AppContext = createContext<{
@@ -69,8 +71,30 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({
           win: calculateProbableWinOnBets(positions, state.bet - MIN_BET),
         };
       }
-      case "RESOLVE":
-        return { ...state };
+      case "PLAY": {
+        // make computer choice
+        const computerChoice = Math.floor(Math.random() * POSITIONS.length + 1);
+
+        // decide winner and winnings
+
+        const result: {
+          win: PositionsType[];
+          loss: PositionsType[];
+          draw: PositionsType[];
+        } = {
+          win: [],
+          loss: [],
+          draw: [],
+        };
+
+        for (const i in state.positions) {
+          const userChoice = ranks[i as PositionsType];
+          const winLossDraw = getWinLossDraw(userChoice, computerChoice);
+          result[winLossDraw].push(i as PositionsType);
+        }
+
+        return { ...state, computerChoice: POSITIONS[computerChoice].position };
+      }
       default:
         return state;
     }

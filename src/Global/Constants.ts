@@ -23,3 +23,14 @@ export const POSITIONS = [
     border: "#9A0E30",
   },
 ];
+
+export enum ranks {
+  rock = 1,
+  paper = 2,
+  scissors = 3,
+}
+
+export const enum winRatio {
+  one = 14,
+  two = 3,
+}
