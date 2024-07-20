@@ -1,15 +1,16 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { createContext, ReactNode, useReducer } from "react";
-import { INIT_BALANCE, MIN_BET, POSITIONS, ranks, winRatio } from "./Constants";
+import { INIT_BALANCE, MIN_BET, POSITIONS } from "./Constants";
 import { PositionsType } from "./Types";
-import { calculateProbableWinOnBets, getWinLossDraw } from "./Utils";
+import { calculateResults } from "./utils/calculateResults";
+import { calculateMaxWinOnBets } from "./utils/calculateMaxWinOnBets";
 
 type StateType = {
   balance: number;
   positions: { [key in PositionsType]?: number | undefined };
   bet: number;
   win: number;
-  computerChoice: PositionsType | null;
+  computerChoice: PositionsType | undefined;
   outcome: "win" | "loss" | "draw" | undefined;
   winPosition: PositionsType | undefined;
   winLossAmount: number | undefined;
@@ -22,7 +23,7 @@ const initialState: StateType = {
   positions: {},
   bet: 0,
   win: 0,
-  computerChoice: null,
+  computerChoice: undefined,
   outcome: undefined,
   winPosition: undefined,
   winLossAmount: undefined,
@@ -41,8 +42,6 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({
     action: { type: string; payload: payloadType },
   ) => {
     switch (action.type) {
-      case "SET_LOADING":
-        return { ...state, loading: action.payload as boolean };
       case "BET": {
         const positions = { ...state.positions };
         if (positions[action.payload as PositionsType] === undefined) {
@@ -56,7 +55,7 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({
           positions,
           balance: state.balance - MIN_BET,
           bet: state.bet + MIN_BET,
-          win: calculateProbableWinOnBets(positions),
+          win: calculateMaxWinOnBets(positions),
         };
       }
       case "REMOVE_BET": {
@@ -66,12 +65,13 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({
         if (positions[action.payload as PositionsType] === 0) {
           delete positions[action.payload as PositionsType];
         }
+
         return {
           ...state,
           positions,
           balance: state.balance + MIN_BET,
           bet: state.bet - MIN_BET,
-          win: calculateProbableWinOnBets(positions),
+          win: calculateMaxWinOnBets(positions),
         };
       }
       case "SET_COMPUTER_CHOICE": {
@@ -83,59 +83,13 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({
         };
       }
       case "CALCULATE_RESULTS": {
-        const resultsArray: {
-          win: PositionsType[];
-          loss: PositionsType[];
-          draw: PositionsType[];
-        } = {
-          win: [],
-          loss: [],
-          draw: [],
-        };
-
-        for (const i in state.positions) {
-          const userChoice = ranks[i as PositionsType];
-          const winLossDraw = getWinLossDraw(
-            userChoice,
-            ranks[state.computerChoice!],
-          );
-          resultsArray[winLossDraw].push(i as PositionsType);
-        }
-
-        let result: {
-          outcome: "win" | "loss" | "draw";
-          winPosition: PositionsType;
-          winLossAmount: number;
-        };
-
-        if (resultsArray.win.length > 0) {
-          result = {
-            outcome: "win",
-            winPosition: resultsArray.win[0],
-            winLossAmount:
-              state.positions[resultsArray.win[0]]! *
-              MIN_BET *
-              winRatio[Object.keys(state.positions).length - 1],
-          };
-        } else if (resultsArray.loss.length > 0) {
-          result = {
-            outcome: "loss",
-            winPosition: state.computerChoice!,
-            winLossAmount: state.bet,
-          };
-        } else {
-          result = {
-            outcome: "draw",
-            winPosition: resultsArray.draw[0],
-            winLossAmount: state.positions[resultsArray.draw[0]]! * MIN_BET,
-          };
-        }
-
         return {
           ...state,
-          outcome: result.outcome,
-          winPosition: result.winPosition,
-          winLossAmount: result.winLossAmount,
+          ...calculateResults(
+            state.positions,
+            state.computerChoice!,
+            state.bet,
+          ),
         };
       }
       case "RESET_GAME": {
@@ -148,7 +102,7 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({
           positions: {},
           bet: 0,
           win: 0,
-          computerChoice: null,
+          computerChoice: undefined,
           outcome: undefined,
           winPosition: undefined,
           winLossAmount: undefined,

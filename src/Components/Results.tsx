@@ -27,7 +27,7 @@ const Results = () => {
               </>
             ) : (
               <>
-                <span>You lose : </span>{" "}
+                <span className='text-[#D4B37F]'>You lose : </span>{" "}
                 <span className='text-white'>{state.winLossAmount}</span>
               </>
             )}
