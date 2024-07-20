@@ -5,10 +5,8 @@ import { motion } from "framer-motion";
 const Board = () => {
   const { state } = useContext(AppContext);
   return (
-    !state.result && (
-      <motion.div
-        exit={{ y: -5000 }}
-        className='grid grid-cols-[80fr_1fr_80fr] justify-center  pt-24 uppercase font-bold text-[#D4B37F]'>
+    !state.outcome && (
+      <div className='grid grid-cols-[80fr_1fr_80fr] justify-center  pt-24 uppercase font-bold text-[#D4B37F]'>
         <div className='flex items-center flex-col'>
           <div className=''>Computer Chose</div>
           {state.computerChoice && (
@@ -43,7 +41,7 @@ const Board = () => {
             ))}
           </div>
         </div>
-      </motion.div>
+      </div>
     )
   );
 };

@@ -1,18 +1,12 @@
 import { MIN_BET, POSITIONS, winRatio } from "./Constants";
 import { PositionsType } from "./Types";
 
-export const calculateProbableWinOnBets = (
-  positions: { [key in PositionsType]?: number | undefined },
-  bets: number,
-) =>
-  Object.keys(positions).length == 1
-    ? bets * winRatio.one
-    : Object.values(positions).reduce(
-        (acc, curr) => (acc > curr ? acc : curr),
-        0,
-      ) *
-      MIN_BET *
-      winRatio.two;
+export const calculateProbableWinOnBets = (positions: {
+  [key in PositionsType]?: number | undefined;
+}) =>
+  Object.values(positions).reduce((acc, curr) => (acc > curr ? acc : curr), 0) *
+  MIN_BET *
+  winRatio[Object.keys(positions).length - 1];
 
 export const getWinLossDraw = (userChoice: number, computerChoice: number) => {
   if (userChoice === computerChoice) {

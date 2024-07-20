@@ -1,30 +1,31 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { createContext, ReactNode, useReducer } from "react";
-import { INIT_BALANCE, MIN_BET, POSITIONS, ranks } from "./Constants";
+import { INIT_BALANCE, MIN_BET, POSITIONS, ranks, winRatio } from "./Constants";
 import { PositionsType } from "./Types";
 import { calculateProbableWinOnBets, getWinLossDraw } from "./Utils";
 
 type StateType = {
-  loading: boolean;
-  initBalance: number;
   balance: number;
   positions: { [key in PositionsType]?: number | undefined };
   bet: number;
   win: number;
   computerChoice: PositionsType | null;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  result?: any;
+  outcome: "win" | "loss" | "draw" | undefined;
+  winPosition: PositionsType | undefined;
+  winLossAmount: number | undefined;
 };
 
 type payloadType = boolean | PositionsType | null;
 
 const initialState: StateType = {
-  loading: false,
-  initBalance: INIT_BALANCE,
   balance: INIT_BALANCE,
   positions: {},
   bet: 0,
   win: 0,
   computerChoice: null,
+  outcome: undefined,
+  winPosition: undefined,
+  winLossAmount: undefined,
 };
 
 export const AppContext = createContext<{
@@ -55,7 +56,7 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({
           positions,
           balance: state.balance - MIN_BET,
           bet: state.bet + MIN_BET,
-          win: calculateProbableWinOnBets(positions, state.bet + MIN_BET),
+          win: calculateProbableWinOnBets(positions),
         };
       }
       case "REMOVE_BET": {
@@ -70,7 +71,7 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({
           positions,
           balance: state.balance + MIN_BET,
           bet: state.bet - MIN_BET,
-          win: calculateProbableWinOnBets(positions, state.bet - MIN_BET),
+          win: calculateProbableWinOnBets(positions),
         };
       }
       case "SET_COMPUTER_CHOICE": {
@@ -101,19 +102,56 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({
           resultsArray[winLossDraw].push(i as PositionsType);
         }
 
-        let result = {};
+        let result: {
+          outcome: "win" | "loss" | "draw";
+          winPosition: PositionsType;
+          winLossAmount: number;
+        };
 
         if (resultsArray.win.length > 0) {
-          result = { outcome: "win", winPosition: resultsArray.win[0] };
+          result = {
+            outcome: "win",
+            winPosition: resultsArray.win[0],
+            winLossAmount:
+              state.positions[resultsArray.win[0]]! *
+              MIN_BET *
+              winRatio[Object.keys(state.positions).length - 1],
+          };
         } else if (resultsArray.loss.length > 0) {
-          result = { outcome: "loss", winPositions: state.computerChoice };
+          result = {
+            outcome: "loss",
+            winPosition: state.computerChoice!,
+            winLossAmount: state.bet,
+          };
         } else {
-          result = { outcome: "draw", positions: resultsArray.draw[0] };
+          result = {
+            outcome: "draw",
+            winPosition: resultsArray.draw[0],
+            winLossAmount: state.positions[resultsArray.draw[0]]! * MIN_BET,
+          };
         }
 
         return {
           ...state,
-          result,
+          outcome: result.outcome,
+          winPosition: result.winPosition,
+          winLossAmount: result.winLossAmount,
+        };
+      }
+      case "RESET_GAME": {
+        return {
+          ...state,
+          balance:
+            state.outcome === "win" || state.outcome === "draw"
+              ? state.balance + state.winLossAmount!
+              : state.balance,
+          positions: {},
+          bet: 0,
+          win: 0,
+          computerChoice: null,
+          outcome: undefined,
+          winPosition: undefined,
+          winLossAmount: undefined,
         };
       }
       default:

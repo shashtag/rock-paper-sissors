@@ -30,7 +30,4 @@ export enum ranks {
   scissors = 3,
 }
 
-export const enum winRatio {
-  one = 14,
-  two = 3,
-}
+export const winRatio = [14, 3];

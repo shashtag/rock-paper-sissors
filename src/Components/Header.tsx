@@ -6,15 +6,15 @@ const Header = () => {
   return (
     <div className='flex bg-[#161616] justify-center gap-16'>
       <div className=' py-1 text-[#FBFBFB] font-semibold'>
-        <span className='text-[#D4B37F]'>Balance: </span>
+        <span className='text-[#D4B37F]'>Balance : </span>
         {state.balance}
       </div>
       <div className=' py-1 text-[#FBFBFB] font-semibold'>
-        <span className='text-[#D4B37F]'>Bet: </span>
+        <span className='text-[#D4B37F]'>Bet : </span>
         {state.bet}
       </div>
       <div className=' py-1 text-[#FBFBFB] font-semibold'>
-        <span className='text-[#D4B37F]'>Win: </span>
+        <span className='text-[#D4B37F]'>Win : </span>
         {state.win}
       </div>
     </div>

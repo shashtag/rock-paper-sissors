@@ -17,7 +17,9 @@ const PlayButton = () => {
           }
           if (!state.computerChoice)
             dispatch({ type: "SET_COMPUTER_CHOICE", payload: null });
-          else dispatch({ type: "CALCULATE_RESULTS", payload: null });
+          else if (!state.outcome)
+            dispatch({ type: "CALCULATE_RESULTS", payload: null });
+          else dispatch({ type: "RESET_GAME", payload: null });
         }}
         className='border-4 block h-max w-52 rounded-full p-4 text-[#D4B37F] text-3xl bg-[#070707] border-[#D4B37F]'>
         {!state.computerChoice ? "Play" : "Continue"}
