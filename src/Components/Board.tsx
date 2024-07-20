@@ -6,9 +6,11 @@ const Board = () => {
   const { state } = useContext(AppContext);
   return (
     !state.outcome && (
-      <div className='md:grid grid-cols-[80fr_1fr_80fr] justify-center pt-8 md:pt-24 uppercase font-bold text-[#D4B37F]'>
+      <div
+        id='board'
+        className='md:grid grid-cols-[80fr_1fr_80fr] justify-center pt-8 md:pt-24 uppercase font-bold text-[#D4B37F]'>
         <div className='flex items-center flex-col'>
-          <div className=''>Computer Chose</div>
+          <div>Computer Chose</div>
           {state.computerChoice ? (
             <motion.div
               className='text-3xl md:text-5xl mt-4 md:mt-16 text-white mb-8 md:mb-0 '
@@ -23,10 +25,10 @@ const Board = () => {
           )}
         </div>
         <div className='flex justify-center mb-6 md:mb-0'>
-          <div className=''>VS</div>
+          <div>VS</div>
         </div>
         <div className='flex items-center flex-col'>
-          <div className=''>Player Chose</div>
+          <div>Player Chose</div>
           <div className='text-3xl md:text-5xl mt-4 md:mt-16 text-white mb-6 md:mb-0 h-9 md:h-auto flex'>
             {Object.keys(state.positions).map((key, i) => (
               <motion.div
