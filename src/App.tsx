@@ -9,7 +9,7 @@ import Results from "./Components/Results";
 function App() {
   return (
     <>
-      <div className='text-lg bg-gradient-to-b from-[#484848] to-[#1D1D1D] h-[100vh]'>
+      <div className='text-lg h-[100vh]'>
         <Header />
         <div className='grid grid-rows-[3fr_2fr_1fr] h-[calc(100vh-36px)]'>
           <Board />
