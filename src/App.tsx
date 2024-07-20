@@ -4,6 +4,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Board from "./Components/Board";
 import PlayButton from "./Components/PlayButton";
+import { AnimatePresence } from "framer-motion";
 
 function App() {
   return (
@@ -11,7 +12,10 @@ function App() {
       <div className='text-lg bg-gradient-to-b from-[#484848] to-[#1D1D1D] h-[100vh]'>
         <Header />
         <div className='grid grid-rows-[3fr_2fr_1fr] h-[calc(100vh-36px)]'>
-          <Board />
+          <AnimatePresence>
+            <Board />
+          </AnimatePresence>
+
           <PositionPicker />
           <PlayButton />
         </div>

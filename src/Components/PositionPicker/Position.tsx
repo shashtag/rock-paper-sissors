@@ -34,17 +34,22 @@ const Position = ({ position, color, bg, border }: PositionProps) => {
           toast("Insufficient balance", { theme: "dark", type: "error" });
           return;
         }
-        dispatch({ type: "BET", payload: position });
+        !state.computerChoice && dispatch({ type: "BET", payload: position });
       }}
-      className='mx-12 h-40 w-52 grid place-items-center capitalize border-[3px] rounded-lg cursor-pointer'
-      style={{ borderColor: border, backgroundColor: bg }}>
+      className='mx-12 h-40 w-52 grid place-items-center capitalize border-[3px] rounded-lg '
+      style={{
+        borderColor: border,
+        backgroundColor: bg,
+        cursor: !state.computerChoice ? "pointer" : undefined,
+      }}>
       <div>
         <div className='h-[4.25rem] w-[4.25rem]  mx-auto mb-3'>
           {state.positions[position as keyof Positions] ? (
             <div
               onClick={(e) => {
                 e.stopPropagation();
-                dispatch({ type: "REMOVE_BET", payload: position });
+                !state.computerChoice &&
+                  dispatch({ type: "REMOVE_BET", payload: position });
               }}
               className='rounded-full h-full w-full border-4 border-[#225EFF] bg-white grid place-items-center font-semibold'>
               {state.positions[position as keyof Positions]! * MIN_BET}

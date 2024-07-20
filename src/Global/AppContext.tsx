@@ -11,6 +11,8 @@ type StateType = {
   bet: number;
   win: number;
   computerChoice: PositionsType | null;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  result?: any;
 };
 
 type payloadType = boolean | PositionsType | null;
@@ -71,13 +73,16 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({
           win: calculateProbableWinOnBets(positions, state.bet - MIN_BET),
         };
       }
-      case "PLAY": {
-        // make computer choice
-        const computerChoice = Math.floor(Math.random() * POSITIONS.length + 1);
-
-        // decide winner and winnings
-
-        const result: {
+      case "SET_COMPUTER_CHOICE": {
+        return {
+          ...state,
+          computerChoice:
+            POSITIONS[Math.floor(Math.random() * POSITIONS.length + 1) - 1]
+              .position,
+        };
+      }
+      case "CALCULATE_RESULTS": {
+        const resultsArray: {
           win: PositionsType[];
           loss: PositionsType[];
           draw: PositionsType[];
@@ -89,11 +94,27 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({
 
         for (const i in state.positions) {
           const userChoice = ranks[i as PositionsType];
-          const winLossDraw = getWinLossDraw(userChoice, computerChoice);
-          result[winLossDraw].push(i as PositionsType);
+          const winLossDraw = getWinLossDraw(
+            userChoice,
+            ranks[state.computerChoice!],
+          );
+          resultsArray[winLossDraw].push(i as PositionsType);
         }
 
-        return { ...state, computerChoice: POSITIONS[computerChoice].position };
+        let result = {};
+
+        if (resultsArray.win.length > 0) {
+          result = { outcome: "win", winPosition: resultsArray.win[0] };
+        } else if (resultsArray.loss.length > 0) {
+          result = { outcome: "loss", winPositions: state.computerChoice };
+        } else {
+          result = { outcome: "draw", positions: resultsArray.draw[0] };
+        }
+
+        return {
+          ...state,
+          result,
+        };
       }
       default:
         return state;
