@@ -4,8 +4,8 @@ export const getWinLossDraw = (userChoice: number, computerChoice: number) => {
   if (userChoice === computerChoice) {
     return "draw";
   } else if (
-    userChoice > computerChoice ||
-    (userChoice === 1 && computerChoice === POSITIONS.length)
+    (userChoice === 1 && computerChoice === POSITIONS.length) ||
+    userChoice === computerChoice + 1
   ) {
     return "win";
   } else {
