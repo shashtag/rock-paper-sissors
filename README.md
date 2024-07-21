@@ -25,8 +25,9 @@
   </p>
 </div>
 
-<!-- TABLE OF CONTENTS -->
-<details>
+TABLE OF CONTENTS
+
+<!-- <details>
   <summary>Table of Contents</summary>
   <ol>
     <li>
@@ -48,7 +49,7 @@
     <li><a href="#acknowledgments">Acknowledgments</a></li>
 
   </ol>
-</details>
+</details> -->
 
 <!-- ABOUT THE PROJECT -->
 
