@@ -158,12 +158,13 @@ We pay attention to everything mentioned for middle. Additionally we expect code
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## Features
+## Developmental Features
 
 - High Code Quality
   - Consistent and self-explanatory variable naming conventions
   - Uniform and well-organized file and folder structure
   - Comprehensive commenting and thorough documentation
+  - Clean code principles
 - Proper UI/UX
 
   - Responsive design
