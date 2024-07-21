@@ -127,14 +127,19 @@ We pay attention to everything mentioned for middle. Additionally we expect code
 ### Installation
 
 1. Clone the repo
+
    ```sh
    git clone https://github.com/shashtag/rock-paper-sissors-betting.git
    ```
+
 2. Install NPM packages
+
    ```sh
    npm install
    ```
+
 3. Start the development server
+
    ```sh
     npm run dev
    ```
@@ -142,10 +147,13 @@ We pay attention to everything mentioned for middle. Additionally we expect code
 ### Run tests
 
 1. Without UI
+
    ```sh
     npm run test
    ```
+
 2. With UI
+
    ```sh
     npm run test:ui
    ```
@@ -162,10 +170,9 @@ We pay attention to everything mentioned for middle. Additionally we expect code
 
   - Responsive design
 
-<img src="./images/mscreen1.png" alt="mobile image 1" data-canonical-src="https://gyazo.com/eb5c5741b6a9a16c692170a41a49c858.png" width="200"  />
-    ![][product-mscreenshot1]
-    ![][product-mscreenshot2]
-    ![][product-mscreenshot3]
+    <img src="./images/mscreen1.png" alt="mobile image 1" data-canonical-src="https://gyazo.com/eb5c5741b6a9a16c692170a41a49c858.png" width="400"  />
+    <img src="./images/mscreen2.png" alt="mobile image 1" data-canonical-src="https://gyazo.com/eb5c5741b6a9a16c692170a41a49c858.png" width="400"  />
+    <img src="./images/mscreen3.png" alt="mobile image 1" data-canonical-src="https://gyazo.com/eb5c5741b6a9a16c692170a41a49c858.png" width="400"  />
 
 - Error notifications and alerts
 
@@ -187,7 +194,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 ## Crafted by
 
-Shashwat Gupta - jobs.shashtag@gmail.com
+Shashwat Gupta - <jobs.shashtag@gmail.com>
 
 Project Link: [https://github.com/shashtag/rock-paper-sissors-betting](https://github.com/shashtag/rock-paper-sissors-betting)
 
