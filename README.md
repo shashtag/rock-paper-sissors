@@ -18,7 +18,7 @@
 
 <div align="center">
 
-  <h3 style="font-size:50px" align="center">Rock Paper Scissors</h3>
+  <h1 align="center">Rock Paper Scissors</h1>
 
   <p align="center">
     <a href="https://rock-paper-scissors-betting.netlify.app/">View Demo</a>
