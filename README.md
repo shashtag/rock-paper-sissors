@@ -161,15 +161,20 @@ We pay attention to everything mentioned for middle. Additionally we expect code
 ## Developmental Features
 
 - High Code Quality
+
   - Consistent and self-explanatory variable naming conventions
   - Uniform and well-organized file and folder structure
   - Comprehensive commenting and thorough documentation
   - Clean code principles
+  - High test coverage percentage
+
+    <img src="./images/testCoverage.png" alt="test coverage"   />
+
 - Proper UI/UX
 
   - Responsive design
 
-    <img src="./images/mscreen1.png" alt="mobile image 1" width="33%"  /><img src="./images/mscreen2.png" alt="mobile image 2" width="33%"  /><img src="./images/mscreen3.png" alt="mobile image 3" width="33%"  />
+    <img src="./images/mscreen1.png" alt="mobile image 1" width="33.33%"  /><img src="./images/mscreen2.png" alt="mobile image 2" width="33.33%"  /><img src="./images/mscreen3.png" alt="mobile image 3" width="33.33%"  />
 
   - Error notifications and alerts
 
