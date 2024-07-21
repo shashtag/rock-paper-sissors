@@ -166,6 +166,10 @@ We pay attention to everything mentioned for middle. Additionally we expect code
   - Uniform and well-organized file and folder structure
   - Comprehensive commenting and thorough documentation
   - Clean code principles
+  - The codebase adapts efficiently to changing requirements and specifications with minimal modifications. This is achieved by -
+    - Defining constants for specified values and utilizing them consistently throughout the application.
+    - Employing the Context API and useReducer hook for state management.
+    - Segmenting logic into concise functions and integrating them within components.
   - High test coverage percentage
 
     <img src="./images/testCoverage.png" alt="test coverage"   />
