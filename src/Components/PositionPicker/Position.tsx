@@ -15,6 +15,7 @@ type Positions = {
   [key in PositionsType]: number | undefined;
 };
 
+// Position Component to display the mapped position and the bet amount
 const Position = ({ position, color, bg, border }: PositionProps) => {
   const { state, dispatch } = useContext(AppContext);
 
@@ -35,6 +36,7 @@ const Position = ({ position, color, bg, border }: PositionProps) => {
           toast("Insufficient balance", { theme: "dark", type: "error" });
           return;
         }
+        // Only allow to change the BET action if the computer has not made a choice
         !state.computerChoice && dispatch({ type: "BET", payload: position });
       }}
       className=' p-2 md:p-0 md:h-40 w-52 grid place-items-center capitalize border-[3px] rounded-lg '
@@ -49,6 +51,7 @@ const Position = ({ position, color, bg, border }: PositionProps) => {
             <div
               onClick={(e) => {
                 e.stopPropagation();
+                // Only allow to change the BET action if the computer has not made a choice
                 !state.computerChoice &&
                   dispatch({ type: "REMOVE_BET", payload: position });
               }}

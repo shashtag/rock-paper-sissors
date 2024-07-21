@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { AppContext } from "../Global/AppContext";
 
+// Header component to display the balance, bet, and win information
 const Header = () => {
   const { state } = useContext(AppContext);
   return (

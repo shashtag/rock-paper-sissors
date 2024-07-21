@@ -2,9 +2,11 @@ import { useContext } from "react";
 import { AppContext } from "../Global/AppContext";
 import { motion } from "framer-motion";
 
+// Board component to display the choices of the computer and the player
 const Board = () => {
   const { state } = useContext(AppContext);
   return (
+    // Render the board only if there is no outcome yet else results is rendered
     !state.outcome && (
       <div
         id='board'
