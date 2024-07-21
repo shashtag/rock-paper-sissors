@@ -170,7 +170,7 @@ We pay attention to everything mentioned for middle. Additionally we expect code
 
   - Responsive design
 
-    <img src="./images/mscreen1.png" alt="mobile image 1" data-canonical-src="https://gyazo.com/eb5c5741b6a9a16c692170a41a49c858.png" width="400"  />
+    <img src="./images/mscreen1.png" alt="mobile image 1" data-canonical-src="https://gyazo.com/eb5c5741b6a9a16c692170a41a49c858.png" width="50%"  />
     <img src="./images/mscreen2.png" alt="mobile image 1" data-canonical-src="https://gyazo.com/eb5c5741b6a9a16c692170a41a49c858.png" width="400"  />
     <img src="./images/mscreen3.png" alt="mobile image 1" data-canonical-src="https://gyazo.com/eb5c5741b6a9a16c692170a41a49c858.png" width="400"  />
 
