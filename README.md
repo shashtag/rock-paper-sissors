@@ -164,7 +164,7 @@ We pay attention to everything mentioned for middle. Additionally we expect code
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## Developmental Features
+## Developmental Highlights
 
 - High Code Quality
 
