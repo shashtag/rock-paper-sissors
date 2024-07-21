@@ -20,6 +20,7 @@ const Position = ({ position, color, bg, border }: PositionProps) => {
 
   return (
     <div
+      data-testid='position-item'
       onClick={() => {
         if (state.positions[position as PositionsType] === undefined) {
           if (Object.keys(state.positions).length >= 2) {
