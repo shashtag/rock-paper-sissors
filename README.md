@@ -54,9 +54,7 @@
 
 ## Test task specification
 
-[![Product Name Screen Shot][product-screenshot1]](https://rock-paper-scissors-betting.netlify.app/)
-[![Product Name Screen Shot][product-screenshot2]](https://rock-paper-scissors-betting.netlify.app/)
-[![Product Name Screen Shot][product-screenshot3]](https://rock-paper-scissors-betting.netlify.app/)
+<img src="./images/screen1.png" alt="screen 1" width="33%"  /><img src="./images/screen2.png" alt="screen 2" width="33%"  /><img src="./images/screen3.png" alt="screen 3" width="33%"  />
 
 Your test task is to create a React app, using Typescript with strict typing.
 The app is a scissors, rock, paper game, with the ability to bet on the winning position.
@@ -170,11 +168,11 @@ We pay attention to everything mentioned for middle. Additionally we expect code
 
   - Responsive design
 
-    <img src="./images/mscreen1.png" alt="mobile image 1" data-canonical-src="https://gyazo.com/eb5c5741b6a9a16c692170a41a49c858.png" width="33%"  /><img src="./images/mscreen2.png" alt="mobile image 2" data-canonical-src="https://gyazo.com/eb5c5741b6a9a16c692170a41a49c858.png" width="33%"  /><img src="./images/mscreen3.png" alt="mobile image 3" data-canonical-src="https://gyazo.com/eb5c5741b6a9a16c692170a41a49c858.png" width="33%"  />
+    <img src="./images/mscreen1.png" alt="mobile image 1" width="33%"  /><img src="./images/mscreen2.png" alt="mobile image 2" width="33%"  /><img src="./images/mscreen3.png" alt="mobile image 3" width="33%"  />
 
   - Error notifications and alerts
 
-  <img src="./images/error1.png" alt="error image 1" data-canonical-src="https://gyazo.com/eb5c5741b6a9a16c692170a41a49c858.png" width="50%"  /><img src="./images/error2.png" alt="error image 1" data-canonical-src="https://gyazo.com/eb5c5741b6a9a16c692170a41a49c858.png" width="50%"  />
+    <img src="./images/error1.png" alt="error image 1" width="50%"  /><img src="./images/error2.png" alt="error image 1" width="50%"  />
 
   - Utilization of micro animations
   - Appropriate implementation of colors and typography
