@@ -156,6 +156,12 @@ We pay attention to everything mentioned for middle. Additionally we expect code
     npm run test:ui
    ```
 
+3. Coverage
+
+   ```sh
+    npm run coverage
+   ```
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Developmental Features
@@ -219,15 +225,15 @@ Project Link: [https://github.com/shashtag/rock-paper-sissors-betting](https://g
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
-[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
+[contributors-shield]: https://img.shields.io/github/contributors/shashtag/rock-paper-sissors-betting?style=for-the-badge
 [contributors-url]: https://github.com/shashtag/rock-paper-sissors-betting/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
+[forks-shield]: https://img.shields.io/github/forks/shashtag/rock-paper-sissors-betting?style=for-the-badge
 [forks-url]: https://github.com/shashtag/rock-paper-sissors-betting/forks
-[stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=for-the-badge
+[stars-shield]: https://img.shields.io/github/stars/shashtag/rock-paper-sissors-betting?style=for-the-badge
 [stars-url]: https://github.com/shashtag/rock-paper-sissors-betting/stargazers
-[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
+[issues-shield]: https://img.shields.io/github/issues/shashtag/rock-paper-sissors-betting?style=for-the-badge
 [issues-url]: https://github.com/shashtag/rock-paper-sissors-betting/issues
-[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
+[license-shield]: https://img.shields.io/github/license/shashtag/rock-paper-sissors-betting?style=for-the-badge
 [license-url]: https://github.com/shashtag/rock-paper-sissors-betting/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/shashtag/
