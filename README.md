@@ -91,14 +91,14 @@ NB please keep in mind that Title ROCK vs PAPER on the second screen means “co
 
 Every point of task should be implemented
 
-#### Junior level
+<!--#### Junior level
 
 In general implementing every point is enough for junior. Optionally we pay attention to such things as concistency, variable naming, files and folders structure.
 
 #### Middle level
 
 We pay attention to everything mentioned for Junior (optional part is mandatory for middle). Additionally we check UX and compare UI with mockups more thorough and we expect following clean code principles
-
+-->
 #### Senior level
 
 We pay attention to everything mentioned for middle. Additionally we expect code to be flexible and maintainable. Changing of requirements should not lead to rewriting half of application. Changing of specifications should cause minimal changes.
